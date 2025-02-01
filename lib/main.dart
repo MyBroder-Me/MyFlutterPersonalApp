@@ -1,8 +1,16 @@
 import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
+import 'package:myapp/auth/auth_gate.dart';
 import 'package:provider/provider.dart';
+import 'package:supabase_flutter/supabase_flutter.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Supabase.initialize(
+    url: 'https://jgywuqgtfzblbaqprvdb.supabase.co',
+    anonKey:
+        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpneXd1cWd0ZnpibGJhcXBydmRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYwMTg3NjQsImV4cCI6MjA1MTU5NDc2NH0.A2lzmtfewM5Rm9LpZlWq4u9fjcPHwmjYNk-y5wD_dBo',
+  );
   runApp(MyApp());
 }
 
@@ -19,7 +27,9 @@ class MyApp extends StatelessWidget {
           useMaterial3: true,
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.green),
         ),
-        home: MyHomePage(),
+        home: AuthGate(),
+        // TODO: Move this home page to its file and call it when login is done.
+        // home: MyHomePage(),
       ),
     );
   }
