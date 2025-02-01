@@ -43,7 +43,9 @@ class _SignUpPageState extends State<SignUpPage> {
 
     try {
       await authService.signUpWithEmailPassword(email, password);
-      Navigator.pop(context);
+      if (mounted) {
+        Navigator.pop(context);
+      }
     } catch (error) {
       if (mounted) {
         showDialog(

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
 
-Text MainPage(String text, {String mode = "dark"}) {
+Text mainPage(String text, {String mode = "dark"}) {
   return Text(text);
 }

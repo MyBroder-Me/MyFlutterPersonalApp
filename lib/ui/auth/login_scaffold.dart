@@ -9,12 +9,12 @@ class LoginScaffold extends StatelessWidget {
   final VoidCallback onSignUp;
 
   const LoginScaffold({
-    Key? key,
+    super.key,
     required this.emailController,
     required this.passwordController,
     required this.onLogin,
     required this.onSignUp,
-  }) : super(key: key);
+  });
 
   @override
   Widget build(BuildContext context) {
@@ -41,8 +41,8 @@ class LoginScaffold extends StatelessWidget {
               child: const Text('Login'),
             ),
             GestureDetector(
-              child: const Text('Don\'t have an account? Sign up'),
               onTap: onSignUp,
+              child: const Text('Don\'t have an account? Sign up'),
             ),
           ],
         ),

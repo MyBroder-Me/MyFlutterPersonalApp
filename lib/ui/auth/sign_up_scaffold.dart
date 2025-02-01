@@ -9,13 +9,13 @@ class SignUpScaffold extends StatelessWidget {
   final VoidCallback onSignUp;
 
   const SignUpScaffold({
-    Key? key,
+    super.key,
     required this.emailController,
     required this.passwordController,
     required this.confirmPasswordController,
     required this.onSignUp,
-  }) : super(key: key);
-
+  });
+ 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
