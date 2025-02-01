@@ -1,18 +1,17 @@
-// lib/components/login_scaffold.dart
-import 'package:flutter/cupertino.dart';
+// lib/components/sign_up_scaffold.dart
 import 'package:flutter/material.dart';
 
-class LoginScaffold extends StatelessWidget {
+class SignUpScaffold extends StatelessWidget {
   final TextEditingController emailController;
   final TextEditingController passwordController;
-  final VoidCallback onLogin;
+  final TextEditingController confirmPasswordController;
   final VoidCallback onSignUp;
 
-  const LoginScaffold({
+  const SignUpScaffold({
     super.key,
     required this.emailController,
     required this.passwordController,
-    required this.onLogin,
+    required this.confirmPasswordController,
     required this.onSignUp,
   });
 
@@ -20,29 +19,35 @@ class LoginScaffold extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Login'),
+        title: const Text('Sign Up'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           children: [
+            // Text field for email input.
+            const SizedBox(height: 50),
             TextField(
               controller: emailController,
               decoration: const InputDecoration(labelText: 'Email'),
             ),
+            // Text field for password input.
             TextField(
               controller: passwordController,
               decoration: const InputDecoration(labelText: 'Password'),
               obscureText: true,
             ),
-            const SizedBox(height: 16),
-            CupertinoButton(
-              onPressed: onLogin,
-              child: const Text('Login'),
+            // Text field for confirm password input.
+            TextField(
+              controller: confirmPasswordController,
+              decoration: const InputDecoration(labelText: 'Confirm Password'),
+              obscureText: true,
             ),
-            GestureDetector(
-              onTap: onSignUp,
-              child: const Text('Don\'t have an account? Sign up'),
+            const SizedBox(height: 50),
+            // Button to trigger the sign-up process.
+            ElevatedButton(
+              onPressed: onSignUp,
+              child: const Text('Sign Up'),
             ),
           ],
         ),

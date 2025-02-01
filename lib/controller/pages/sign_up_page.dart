@@ -1,7 +1,8 @@
 // lib/auth/pages/sign_up_page.dart
 import 'package:flutter/material.dart';
+import 'package:myapp/controller/navigation.dart';
 
-import '../../ui/auth/sign_up_scaffold.dart';
+import '../../view/auth/sign_up_scaffold.dart';
 import '../auth_service.dart';
 
 class SignUpPage extends StatefulWidget {
@@ -16,6 +17,7 @@ class _SignUpPageState extends State<SignUpPage> {
   final _emailController = TextEditingController();
   final _passwordController = TextEditingController();
   final _confirmPasswordController = TextEditingController();
+  final NavigationService _navigationService = NavigationService();
 
   void signUp() async {
     final email = _emailController.text;
@@ -44,7 +46,7 @@ class _SignUpPageState extends State<SignUpPage> {
     try {
       await authService.signUpWithEmailPassword(email, password);
       if (mounted) {
-        Navigator.pop(context);
+        _navigationService.navigateToMain(context);
       }
     } catch (error) {
       if (mounted) {
