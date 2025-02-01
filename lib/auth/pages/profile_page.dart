@@ -1,5 +1,7 @@
+// lib/auth/pages/profile_page.dart
 import 'package:flutter/material.dart';
 
+import '../../ui/auth/profile_scaffold.dart';
 import '../auth_service.dart';
 
 class ProfilePage extends StatefulWidget {
@@ -19,34 +21,9 @@ class _ProfilePageState extends State<ProfilePage> {
   @override
   Widget build(BuildContext context) {
     final email = authService.getCurrentUserEmail();
-    return Scaffold(
-      appBar: AppBar(
-        title: const Text('Profile'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () async {
-              await authService.signOut();
-            },
-          ),
-        ],
-      ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text('Welcome, $email'),
-            const SizedBox(height: 16),
-            ElevatedButton(
-              onPressed: () async {
-                // Sign out the user.
-                await authService.signOut();
-              },
-              child: const Text('Sign Out'),
-            ),
-          ],
-        ),
-      ),
+    return ProfileScaffold(
+      email: email,
+      onLogout: logout,
     );
   }
 }

@@ -4,7 +4,7 @@ import 'package:myapp/auth/pages/profile_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 /// A widget that manages the authentication state of the application.
-/// It listens to the authentication state changes and displays the appropriate
+/// This class listens to the authentication state changes and displays the appropriate
 /// page based on whether the user is authenticated or not.
 class AuthGate extends StatelessWidget {
   const AuthGate({super.key});
@@ -29,7 +29,6 @@ class AuthGate extends StatelessWidget {
         // Otherwise, show the LoginPage.
         if (session != null) {
           return ProfilePage();
-          //return ProfilePage();
         } else {
           return LoginPage();
         }
