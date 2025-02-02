@@ -3,18 +3,20 @@ import 'package:flutter/material.dart';
 class NavigationRailMenu extends StatelessWidget {
   final int selectedIndex;
   final ValueChanged<int> onDestinationSelected;
+  final bool isExtended;
 
   const NavigationRailMenu({
     super.key,
     required this.selectedIndex,
     required this.onDestinationSelected,
+    required this.isExtended,
   });
 
   @override
   Widget build(BuildContext context) {
     return SafeArea(
       child: NavigationRail(
-        extended: true,
+        extended: isExtended,
         destinations: const [
           NavigationRailDestination(
             icon: Icon(Icons.home),
