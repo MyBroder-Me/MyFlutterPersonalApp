@@ -17,8 +17,18 @@ class MenuState extends State<Menu> {
     setState(() {
       if (index == 1) {
         showNavigationRail = true;
+        isRailExtended = false; // Ensure the rail is contracted when shown
       } else {
         selectedIndex = index;
+        showNavigationRail = false;
+      }
+    });
+  }
+
+  void onRailDestinationSelected(int index) {
+    setState(() {
+      selectedIndex = index;
+      if (MediaQuery.of(context).size.width < 450) {
         showNavigationRail = false;
       }
     });
@@ -29,60 +39,79 @@ class MenuState extends State<Menu> {
     return Scaffold(
       body: GestureDetector(
         onTap: () {
-          if (isRailExtended && MediaQuery.of(context).size.width > 450) {
+          if (showNavigationRail && MediaQuery.of(context).size.width < 450) {
             setState(() {
-              isRailExtended = false;
+              showNavigationRail = false;
             });
           }
         },
-        child: LayoutBuilder(
-          builder: (context, constraints) {
-            if (constraints.maxWidth > 450) {
-              showNavigationRail = true;
-            }
+        child: Stack(
+          children: [
+            LayoutBuilder(
+              builder: (context, constraints) {
+                if (constraints.maxWidth > 450) {
+                  showNavigationRail = true;
+                }
 
-            Widget mainArea = MainArea(selectedIndex: selectedIndex);
+                Widget mainArea = MainArea(selectedIndex: selectedIndex);
 
-            if (constraints.maxWidth < 450) {
-              // Layout móvil
-              return Column(
-                children: [
-                  Expanded(child: mainArea),
-                  BottomNavBar(
-                    selectedIndex: selectedIndex,
-                    onTap: onBottomNavTap,
-                  ),
-                ],
-              );
-            } else {
-              // Layout para pantallas más grandes
-              return Row(
-                children: [
-                  if (showNavigationRail)
-                    GestureDetector(
-                      onTap: () {
-                        if (!isRailExtended) {
-                          setState(() {
-                            isRailExtended = true;
-                          });
-                        }
-                      },
-                      child: NavigationRailMenu(
-                        selectedIndex: selectedIndex,
-                        onDestinationSelected: (value) {
-                          setState(() {
-                            selectedIndex = value;
-                            isRailExtended = false;
-                          });
-                        },
-                        isExtended: isRailExtended,
+                if (constraints.maxWidth < 450) {
+                  // Layout móvil
+                  return Column(
+                    children: [
+                      Expanded(child: mainArea),
+                      BottomNavBar(
+                        selectedIndex: 0,
+                        onTap: onBottomNavTap,
                       ),
-                    ),
-                  Expanded(child: mainArea),
-                ],
-              );
-            }
-          },
+                    ],
+                  );
+                } else {
+                  // Layout para pantallas más grandes
+                  return Row(
+                    children: [
+                      if (showNavigationRail)
+                        GestureDetector(
+                          onTap: () {
+                            if (!isRailExtended) {
+                              setState(() {
+                                isRailExtended = true;
+                              });
+                            }
+                          },
+                          child: NavigationRailMenu(
+                            selectedIndex: selectedIndex,
+                            onDestinationSelected: onRailDestinationSelected,
+                            isExtended: isRailExtended,
+                          ),
+                        ),
+                      Expanded(child: mainArea),
+                    ],
+                  );
+                }
+              },
+            ),
+            if (showNavigationRail && MediaQuery.of(context).size.width < 450)
+              Positioned(
+                left: 0,
+                top: 0,
+                bottom: 0,
+                child: GestureDetector(
+                  // Hides the rail when tapping outside of it
+                  onTap: () {
+                    setState(() {
+                      showNavigationRail = false;
+                    });
+                  },
+                  child: NavigationRailMenu(
+                    selectedIndex: selectedIndex,
+                    onDestinationSelected: onRailDestinationSelected,
+                    isExtended:
+                        false, // Ensure the rail is contracted when shown
+                  ),
+                ),
+              ),
+          ],
         ),
       ),
     );
