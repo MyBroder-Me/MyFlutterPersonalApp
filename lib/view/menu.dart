@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+
 import '../model/menu.dart';
 import 'navigation/bottom_nav_bar.dart';
 import 'navigation/horizontal_nav_bar.dart';
@@ -39,7 +40,7 @@ class MenuState extends State<Menu> {
                           MainArea(selectedIndex: model.selectedIndex);
 
                       if (constraints.maxWidth < 450) {
-                        // Layout móvil
+                        // Layout mobile
                         return Column(
                           children: [
                             Expanded(child: mainArea),
@@ -52,7 +53,7 @@ class MenuState extends State<Menu> {
                           ],
                         );
                       } else {
-                        // Layout para pantallas más grandes
+                        // Layout for bigger screens
                         return Scaffold(
                           body: GestureDetector(
                             onTap: () {

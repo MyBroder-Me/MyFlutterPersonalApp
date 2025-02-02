@@ -1,10 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/controller/pages/login_page.dart';
 import 'package:myapp/controller/pages/sign_up_page.dart';
-
-import '../view/menu.dart';
-
-class NavigationService {
+import 'package:myappgationService {
   NavigationService._privateConstructor();
 
   static final NavigationService _instance =
@@ -15,8 +12,9 @@ class NavigationService {
   }
 
   void navigateToLogin(context) {
-    Navigator.of(context).push(
+    Navigator.of(context).pushAndRemoveUntil(
       MaterialPageRoute(builder: (context) => LoginPage()),
+      (Route<dynamic> route) => false,
     );
   }
 
