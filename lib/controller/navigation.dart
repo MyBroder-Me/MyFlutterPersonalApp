@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/controller/pages/login_page.dart';
-import 'package:myapp/view/menu.dart';
 import 'package:myapp/controller/pages/sign_up_page.dart';
+
+import '../view/menu.dart';
 
 class NavigationService {
   NavigationService._privateConstructor();
