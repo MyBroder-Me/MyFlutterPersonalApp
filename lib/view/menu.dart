@@ -40,7 +40,7 @@ class MenuState extends State<Menu> {
                           MainArea(selectedIndex: model.selectedIndex);
 
                       if (constraints.maxWidth < 450) {
-                        // Layout mobile
+                        // Layout smartphone
                         return Column(
                           children: [
                             Expanded(child: mainArea),
