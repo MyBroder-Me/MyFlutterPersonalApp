@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'package:myapp/view/menu.dart';
 import 'package:myapp/controller/pages/login_page.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import 'model/main_state.dart';
+import 'view/menu.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
