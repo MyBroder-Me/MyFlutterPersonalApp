@@ -24,10 +24,10 @@ class MainArea extends StatelessWidget {
         page = FavoritesPage();
         break;
       case 3:
-        page = ProfilePage();
+        page = BooksPage();
         break;
       case 4:
-        page = BooksPage();
+        page = ProfilePage();
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');

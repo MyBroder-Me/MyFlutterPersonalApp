@@ -11,7 +11,6 @@ class BookService {
   Future<List<Book>> fetchBooks() async {
     final response = await client.from('books').select().count();
     final data = response.data as List<dynamic>;
-    print(data);
     return data.map((json) => Book.fromJson(json)).toList();
   }
 
@@ -29,10 +28,8 @@ class BookService {
 
   Future<void> addBookWithCurrentUser(Book book) async {
     final userId = client.auth.currentUser?.id;
-    print(userId);
     if (userId != null) {
       final bookWithUserId = book.copyWith(usersId: userId);
-      print(bookWithUserId.toJson());
       await addBook(bookWithUserId);
     } else {
       throw Exception('User not authenticated');

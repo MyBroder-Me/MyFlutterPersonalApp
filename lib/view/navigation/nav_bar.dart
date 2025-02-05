@@ -31,12 +31,12 @@ class NavigationRailMenu extends StatelessWidget {
             label: Text('Favorites'),
           ),
           NavigationRailDestination(
-            icon: Icon(Icons.person),
-            label: Text('Profile'),
-          ),
-          NavigationRailDestination(
             icon: Icon(Icons.book),
             label: Text('Books'),
+          ),
+          NavigationRailDestination(
+            icon: Icon(Icons.person),
+            label: Text('Profile'),
           ),
         ],
         selectedIndex: selectedIndex,
