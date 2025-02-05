@@ -1,9 +1,8 @@
-// lib/view/books_page.dart
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import '../../controller/book_service.dart';
-import '../../model/book.dart';
+import '../controller/book_service.dart';
+import '../model/book.dart';
 
 class BooksPage extends StatefulWidget {
   const BooksPage({super.key});
@@ -21,7 +20,6 @@ class _BooksPageState extends State<BooksPage> {
     booksFuture = Provider.of<BookService>(context, listen: false).fetchBooks();
   }
 
-// lib/view/books_page.dart
   void _addBook() async {
     final titleController = TextEditingController();
     final authorController = TextEditingController();

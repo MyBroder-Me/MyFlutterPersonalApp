@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/controller/auth_service.dart';
 import 'package:myapp/controller/pages/login_page.dart';
 import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
@@ -32,6 +33,9 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (context) => MyAppState()),
         Provider<BookService>(
             create: (_) => BookService(Supabase.instance.client)),
+        Provider<AuthService>(
+          create: (_) => AuthService(),
+        )
       ],
       child: MaterialApp(
         title: 'My App',

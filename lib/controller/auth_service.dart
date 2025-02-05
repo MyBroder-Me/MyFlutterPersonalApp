@@ -51,4 +51,12 @@ class AuthService {
     final user = session?.user;
     return user?.email;
   }
+
+  Future<void> deleteAccount() async {
+    final user = _supabase.auth.currentUser;
+    if (user != null) {
+      await _supabase.from('users').delete().eq('id', user.id);
+      await _supabase.auth.signOut();
+    }
+  }
 }
