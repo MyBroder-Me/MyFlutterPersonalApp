@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:myapp/controller/auth_service.dart';
 import 'package:myapp/controller/pages/login_page.dart';
+import 'package:provider/provider.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
+import 'controller/book_service.dart';
 import 'model/main_state.dart';
 import 'view/menu.dart';
 
@@ -26,8 +28,15 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => MyAppState(),
+    return MultiProvider(
+      providers: [
+        ChangeNotifierProvider(create: (context) => MyAppState()),
+        Provider<BookService>(
+            create: (_) => BookService(Supabase.instance.client)),
+        Provider<AuthService>(
+          create: (_) => AuthService(),
+        )
+      ],
       child: MaterialApp(
         title: 'My App',
         theme: ThemeData(

@@ -3,8 +3,8 @@ import 'package:provider/provider.dart';
 
 import '../model/menu.dart';
 import 'navigation/bottom_nav_bar.dart';
-import 'navigation/horizontal_nav_bar.dart';
 import 'navigation/menu_items.dart';
+import 'navigation/nav_bar.dart';
 
 class Menu extends StatefulWidget {
   @override
