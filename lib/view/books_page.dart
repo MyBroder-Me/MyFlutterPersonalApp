@@ -63,14 +63,16 @@ class _BooksPageState extends State<BooksPage> {
       },
     );
 
-    if (result != null) {
+    if (result != null && mounted) {
       try {
         await Provider.of<BookService>(context, listen: false)
             .addBookWithCurrentUser(result);
-        setState(() {
-          booksFuture =
-              Provider.of<BookService>(context, listen: false).fetchBooks();
-        });
+        if (mounted) {
+          setState(() {
+            booksFuture =
+                Provider.of<BookService>(context, listen: false).fetchBooks();
+          });
+        }
       } catch (e) {
         // Handle error (e.g., show a message to the user)
         print('Error adding book: $e');
@@ -80,10 +82,12 @@ class _BooksPageState extends State<BooksPage> {
 
   void _removeBook(String id) async {
     await Provider.of<BookService>(context, listen: false).removeBook(id);
-    setState(() {
-      booksFuture =
-          Provider.of<BookService>(context, listen: false).fetchBooks();
-    });
+    if (mounted) {
+      setState(() {
+        booksFuture =
+            Provider.of<BookService>(context, listen: false).fetchBooks();
+      });
+    }
   }
 
   void _editBook(Book book) async {
@@ -131,12 +135,14 @@ class _BooksPageState extends State<BooksPage> {
       },
     );
 
-    if (result != null) {
+    if (result != null && mounted) {
       await Provider.of<BookService>(context, listen: false).editBook(result);
-      setState(() {
-        booksFuture =
-            Provider.of<BookService>(context, listen: false).fetchBooks();
-      });
+      if (mounted) {
+        setState(() {
+          booksFuture =
+              Provider.of<BookService>(context, listen: false).fetchBooks();
+        });
+      }
     }
   }
 

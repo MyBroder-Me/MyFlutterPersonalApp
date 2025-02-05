@@ -28,10 +28,10 @@ class ProfileScaffold extends StatelessWidget {
           const SizedBox(height: 16),
           ElevatedButton(
             onPressed: onDeleteAccount,
-            child: const Text('Delete Account'),
             style: ElevatedButton.styleFrom(
               backgroundColor: Colors.red, // Red color for delete button
             ),
+            child: const Text('Delete Account'),
           ),
         ],
       ),
