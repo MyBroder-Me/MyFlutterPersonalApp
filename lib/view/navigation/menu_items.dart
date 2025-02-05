@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../controller/pages/profile_page.dart';
+import '../books_page.dart';
 import '../wordpair/favorites_page.dart';
 import '../wordpair/generator_page.dart';
 
@@ -24,6 +25,9 @@ class MainArea extends StatelessWidget {
         break;
       case 3:
         page = ProfilePage();
+        break;
+      case 4:
+        page = BooksPage();
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');

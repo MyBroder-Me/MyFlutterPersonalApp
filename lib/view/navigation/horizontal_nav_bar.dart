@@ -34,6 +34,10 @@ class NavigationRailMenu extends StatelessWidget {
             icon: Icon(Icons.person),
             label: Text('Profile'),
           ),
+          NavigationRailDestination(
+            icon: Icon(Icons.book),
+            label: Text('Books'),
+          ),
         ],
         selectedIndex: selectedIndex,
         onDestinationSelected: onDestinationSelected,
