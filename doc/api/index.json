@@ -1,0 +1,1686 @@
+[
+  {
+    "name": "auth_gate",
+    "qualifiedName": "auth_gate",
+    "href": "controller_auth_gate/controller_auth_gate-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "AuthGate",
+    "qualifiedName": "auth_gate.AuthGate",
+    "href": "controller_auth_gate/AuthGate-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "A widget that manages the authentication state of the application.\nThis class listens to the authentication state changes and displays the appropriate\npage based on whether the user is authenticated or not.",
+    "enclosedBy": {
+      "name": "auth_gate",
+      "kind": 9,
+      "href": "controller_auth_gate/controller_auth_gate-library.html"
+    }
+  },
+  {
+    "name": "AuthGate",
+    "qualifiedName": "auth_gate.AuthGate.AuthGate",
+    "href": "controller_auth_gate/AuthGate/AuthGate.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "AuthGate",
+      "kind": 3,
+      "href": "controller_auth_gate/AuthGate-class.html"
+    }
+  },
+  {
+    "name": "build",
+    "qualifiedName": "auth_gate.AuthGate.build",
+    "href": "controller_auth_gate/AuthGate/build.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Describes the part of the user interface represented by this widget.",
+    "enclosedBy": {
+      "name": "AuthGate",
+      "kind": 3,
+      "href": "controller_auth_gate/AuthGate-class.html"
+    }
+  },
+  {
+    "name": "auth_service",
+    "qualifiedName": "auth_service",
+    "href": "controller_auth_service/controller_auth_service-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "AuthService",
+    "qualifiedName": "auth_service.AuthService",
+    "href": "controller_auth_service/AuthService-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "A service class to manage authentication using Supabase.\nThis class provides methods for signing in, signing up, signing out,\nand retrieving the currently authenticated user's email.",
+    "enclosedBy": {
+      "name": "auth_service",
+      "kind": 9,
+      "href": "controller_auth_service/controller_auth_service-library.html"
+    }
+  },
+  {
+    "name": "AuthService",
+    "qualifiedName": "auth_service.AuthService.AuthService",
+    "href": "controller_auth_service/AuthService/AuthService.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "AuthService",
+      "kind": 3,
+      "href": "controller_auth_service/AuthService-class.html"
+    }
+  },
+  {
+    "name": "getCurrentUserEmail",
+    "qualifiedName": "auth_service.AuthService.getCurrentUserEmail",
+    "href": "controller_auth_service/AuthService/getCurrentUserEmail.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "Retrieves the email of the currently authenticated user.",
+    "enclosedBy": {
+      "name": "AuthService",
+      "kind": 3,
+      "href": "controller_auth_service/AuthService-class.html"
+    }
+  },
+  {
+    "name": "signInWithEmailPassword",
+    "qualifiedName": "auth_service.AuthService.signInWithEmailPassword",
+    "href": "controller_auth_service/AuthService/signInWithEmailPassword.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "Signs in a user with email and password.",
+    "enclosedBy": {
+      "name": "AuthService",
+      "kind": 3,
+      "href": "controller_auth_service/AuthService-class.html"
+    }
+  },
+  {
+    "name": "signOut",
+    "qualifiedName": "auth_service.AuthService.signOut",
+    "href": "controller_auth_service/AuthService/signOut.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "Signs out the currently authenticated user.",
+    "enclosedBy": {
+      "name": "AuthService",
+      "kind": 3,
+      "href": "controller_auth_service/AuthService-class.html"
+    }
+  },
+  {
+    "name": "signUpWithEmailPassword",
+    "qualifiedName": "auth_service.AuthService.signUpWithEmailPassword",
+    "href": "controller_auth_service/AuthService/signUpWithEmailPassword.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "Registers a new user with email and password.",
+    "enclosedBy": {
+      "name": "AuthService",
+      "kind": 3,
+      "href": "controller_auth_service/AuthService-class.html"
+    }
+  },
+  {
+    "name": "bottom_nav_bar",
+    "qualifiedName": "bottom_nav_bar",
+    "href": "view_navigation_bottom_nav_bar/view_navigation_bottom_nav_bar-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "BottomNavBar",
+    "qualifiedName": "bottom_nav_bar.BottomNavBar",
+    "href": "view_navigation_bottom_nav_bar/BottomNavBar-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "bottom_nav_bar",
+      "kind": 9,
+      "href": "view_navigation_bottom_nav_bar/view_navigation_bottom_nav_bar-library.html"
+    }
+  },
+  {
+    "name": "BottomNavBar",
+    "qualifiedName": "bottom_nav_bar.BottomNavBar.BottomNavBar",
+    "href": "view_navigation_bottom_nav_bar/BottomNavBar/BottomNavBar.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "BottomNavBar",
+      "kind": 3,
+      "href": "view_navigation_bottom_nav_bar/BottomNavBar-class.html"
+    }
+  },
+  {
+    "name": "build",
+    "qualifiedName": "bottom_nav_bar.BottomNavBar.build",
+    "href": "view_navigation_bottom_nav_bar/BottomNavBar/build.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Describes the part of the user interface represented by this widget.",
+    "enclosedBy": {
+      "name": "BottomNavBar",
+      "kind": 3,
+      "href": "view_navigation_bottom_nav_bar/BottomNavBar-class.html"
+    }
+  },
+  {
+    "name": "onTap",
+    "qualifiedName": "bottom_nav_bar.BottomNavBar.onTap",
+    "href": "view_navigation_bottom_nav_bar/BottomNavBar/onTap.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "BottomNavBar",
+      "kind": 3,
+      "href": "view_navigation_bottom_nav_bar/BottomNavBar-class.html"
+    }
+  },
+  {
+    "name": "selectedIndex",
+    "qualifiedName": "bottom_nav_bar.BottomNavBar.selectedIndex",
+    "href": "view_navigation_bottom_nav_bar/BottomNavBar/selectedIndex.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "BottomNavBar",
+      "kind": 3,
+      "href": "view_navigation_bottom_nav_bar/BottomNavBar-class.html"
+    }
+  },
+  {
+    "name": "favorites_page",
+    "qualifiedName": "favorites_page",
+    "href": "view_wordpair_favorites_page/view_wordpair_favorites_page-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "FavoritesPage",
+    "qualifiedName": "favorites_page.FavoritesPage",
+    "href": "view_wordpair_favorites_page/FavoritesPage-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "favorites_page",
+      "kind": 9,
+      "href": "view_wordpair_favorites_page/view_wordpair_favorites_page-library.html"
+    }
+  },
+  {
+    "name": "FavoritesPage",
+    "qualifiedName": "favorites_page.FavoritesPage.FavoritesPage",
+    "href": "view_wordpair_favorites_page/FavoritesPage/FavoritesPage.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "FavoritesPage",
+      "kind": 3,
+      "href": "view_wordpair_favorites_page/FavoritesPage-class.html"
+    }
+  },
+  {
+    "name": "build",
+    "qualifiedName": "favorites_page.FavoritesPage.build",
+    "href": "view_wordpair_favorites_page/FavoritesPage/build.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Describes the part of the user interface represented by this widget.",
+    "enclosedBy": {
+      "name": "FavoritesPage",
+      "kind": 3,
+      "href": "view_wordpair_favorites_page/FavoritesPage-class.html"
+    }
+  },
+  {
+    "name": "generator_page",
+    "qualifiedName": "generator_page",
+    "href": "view_wordpair_generator_page/view_wordpair_generator_page-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "GeneratorPage",
+    "qualifiedName": "generator_page.GeneratorPage",
+    "href": "view_wordpair_generator_page/GeneratorPage-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "generator_page",
+      "kind": 9,
+      "href": "view_wordpair_generator_page/view_wordpair_generator_page-library.html"
+    }
+  },
+  {
+    "name": "GeneratorPage",
+    "qualifiedName": "generator_page.GeneratorPage.GeneratorPage",
+    "href": "view_wordpair_generator_page/GeneratorPage/GeneratorPage.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "GeneratorPage",
+      "kind": 3,
+      "href": "view_wordpair_generator_page/GeneratorPage-class.html"
+    }
+  },
+  {
+    "name": "build",
+    "qualifiedName": "generator_page.GeneratorPage.build",
+    "href": "view_wordpair_generator_page/GeneratorPage/build.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Describes the part of the user interface represented by this widget.",
+    "enclosedBy": {
+      "name": "GeneratorPage",
+      "kind": 3,
+      "href": "view_wordpair_generator_page/GeneratorPage-class.html"
+    }
+  },
+  {
+    "name": "horizontal_nav_bar",
+    "qualifiedName": "horizontal_nav_bar",
+    "href": "view_navigation_horizontal_nav_bar/view_navigation_horizontal_nav_bar-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "NavigationRailMenu",
+    "qualifiedName": "horizontal_nav_bar.NavigationRailMenu",
+    "href": "view_navigation_horizontal_nav_bar/NavigationRailMenu-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "horizontal_nav_bar",
+      "kind": 9,
+      "href": "view_navigation_horizontal_nav_bar/view_navigation_horizontal_nav_bar-library.html"
+    }
+  },
+  {
+    "name": "NavigationRailMenu",
+    "qualifiedName": "horizontal_nav_bar.NavigationRailMenu.NavigationRailMenu",
+    "href": "view_navigation_horizontal_nav_bar/NavigationRailMenu/NavigationRailMenu.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "NavigationRailMenu",
+      "kind": 3,
+      "href": "view_navigation_horizontal_nav_bar/NavigationRailMenu-class.html"
+    }
+  },
+  {
+    "name": "build",
+    "qualifiedName": "horizontal_nav_bar.NavigationRailMenu.build",
+    "href": "view_navigation_horizontal_nav_bar/NavigationRailMenu/build.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Describes the part of the user interface represented by this widget.",
+    "enclosedBy": {
+      "name": "NavigationRailMenu",
+      "kind": 3,
+      "href": "view_navigation_horizontal_nav_bar/NavigationRailMenu-class.html"
+    }
+  },
+  {
+    "name": "isExtended",
+    "qualifiedName": "horizontal_nav_bar.NavigationRailMenu.isExtended",
+    "href": "view_navigation_horizontal_nav_bar/NavigationRailMenu/isExtended.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "NavigationRailMenu",
+      "kind": 3,
+      "href": "view_navigation_horizontal_nav_bar/NavigationRailMenu-class.html"
+    }
+  },
+  {
+    "name": "onDestinationSelected",
+    "qualifiedName": "horizontal_nav_bar.NavigationRailMenu.onDestinationSelected",
+    "href": "view_navigation_horizontal_nav_bar/NavigationRailMenu/onDestinationSelected.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "NavigationRailMenu",
+      "kind": 3,
+      "href": "view_navigation_horizontal_nav_bar/NavigationRailMenu-class.html"
+    }
+  },
+  {
+    "name": "selectedIndex",
+    "qualifiedName": "horizontal_nav_bar.NavigationRailMenu.selectedIndex",
+    "href": "view_navigation_horizontal_nav_bar/NavigationRailMenu/selectedIndex.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "NavigationRailMenu",
+      "kind": 3,
+      "href": "view_navigation_horizontal_nav_bar/NavigationRailMenu-class.html"
+    }
+  },
+  {
+    "name": "login_page",
+    "qualifiedName": "login_page",
+    "href": "controller_pages_login_page/controller_pages_login_page-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "LoginPage",
+    "qualifiedName": "login_page.LoginPage",
+    "href": "controller_pages_login_page/LoginPage-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "login_page",
+      "kind": 9,
+      "href": "controller_pages_login_page/controller_pages_login_page-library.html"
+    }
+  },
+  {
+    "name": "LoginPage",
+    "qualifiedName": "login_page.LoginPage.LoginPage",
+    "href": "controller_pages_login_page/LoginPage/LoginPage.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "LoginPage",
+      "kind": 3,
+      "href": "controller_pages_login_page/LoginPage-class.html"
+    }
+  },
+  {
+    "name": "createState",
+    "qualifiedName": "login_page.LoginPage.createState",
+    "href": "controller_pages_login_page/LoginPage/createState.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Creates the mutable state for this widget at a given location in the tree.",
+    "enclosedBy": {
+      "name": "LoginPage",
+      "kind": 3,
+      "href": "controller_pages_login_page/LoginPage-class.html"
+    }
+  },
+  {
+    "name": "login_scaffold",
+    "qualifiedName": "login_scaffold",
+    "href": "view_auth_login_scaffold/view_auth_login_scaffold-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "LoginScaffold",
+    "qualifiedName": "login_scaffold.LoginScaffold",
+    "href": "view_auth_login_scaffold/LoginScaffold-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "login_scaffold",
+      "kind": 9,
+      "href": "view_auth_login_scaffold/view_auth_login_scaffold-library.html"
+    }
+  },
+  {
+    "name": "LoginScaffold",
+    "qualifiedName": "login_scaffold.LoginScaffold.LoginScaffold",
+    "href": "view_auth_login_scaffold/LoginScaffold/LoginScaffold.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "LoginScaffold",
+      "kind": 3,
+      "href": "view_auth_login_scaffold/LoginScaffold-class.html"
+    }
+  },
+  {
+    "name": "build",
+    "qualifiedName": "login_scaffold.LoginScaffold.build",
+    "href": "view_auth_login_scaffold/LoginScaffold/build.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Describes the part of the user interface represented by this widget.",
+    "enclosedBy": {
+      "name": "LoginScaffold",
+      "kind": 3,
+      "href": "view_auth_login_scaffold/LoginScaffold-class.html"
+    }
+  },
+  {
+    "name": "emailController",
+    "qualifiedName": "login_scaffold.LoginScaffold.emailController",
+    "href": "view_auth_login_scaffold/LoginScaffold/emailController.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "LoginScaffold",
+      "kind": 3,
+      "href": "view_auth_login_scaffold/LoginScaffold-class.html"
+    }
+  },
+  {
+    "name": "onLogin",
+    "qualifiedName": "login_scaffold.LoginScaffold.onLogin",
+    "href": "view_auth_login_scaffold/LoginScaffold/onLogin.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "LoginScaffold",
+      "kind": 3,
+      "href": "view_auth_login_scaffold/LoginScaffold-class.html"
+    }
+  },
+  {
+    "name": "onSignUp",
+    "qualifiedName": "login_scaffold.LoginScaffold.onSignUp",
+    "href": "view_auth_login_scaffold/LoginScaffold/onSignUp.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "LoginScaffold",
+      "kind": 3,
+      "href": "view_auth_login_scaffold/LoginScaffold-class.html"
+    }
+  },
+  {
+    "name": "passwordController",
+    "qualifiedName": "login_scaffold.LoginScaffold.passwordController",
+    "href": "view_auth_login_scaffold/LoginScaffold/passwordController.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "LoginScaffold",
+      "kind": 3,
+      "href": "view_auth_login_scaffold/LoginScaffold-class.html"
+    }
+  },
+  {
+    "name": "main",
+    "qualifiedName": "main",
+    "href": "main/main-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "MyApp",
+    "qualifiedName": "main.MyApp",
+    "href": "main/MyApp-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "main",
+      "kind": 9,
+      "href": "main/main-library.html"
+    }
+  },
+  {
+    "name": "MyApp",
+    "qualifiedName": "main.MyApp.MyApp",
+    "href": "main/MyApp/MyApp.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MyApp",
+      "kind": 3,
+      "href": "main/MyApp-class.html"
+    }
+  },
+  {
+    "name": "build",
+    "qualifiedName": "main.MyApp.build",
+    "href": "main/MyApp/build.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Describes the part of the user interface represented by this widget.",
+    "enclosedBy": {
+      "name": "MyApp",
+      "kind": 3,
+      "href": "main/MyApp-class.html"
+    }
+  },
+  {
+    "name": "main",
+    "qualifiedName": "main.main",
+    "href": "main/main.html",
+    "kind": 8,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "main",
+      "kind": 9,
+      "href": "main/main-library.html"
+    }
+  },
+  {
+    "name": "main_state",
+    "qualifiedName": "main_state",
+    "href": "model_main_state/model_main_state-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "MyAppState",
+    "qualifiedName": "main_state.MyAppState",
+    "href": "model_main_state/MyAppState-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "main_state",
+      "kind": 9,
+      "href": "model_main_state/model_main_state-library.html"
+    }
+  },
+  {
+    "name": "MyAppState",
+    "qualifiedName": "main_state.MyAppState.MyAppState",
+    "href": "model_main_state/MyAppState/MyAppState.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MyAppState",
+      "kind": 3,
+      "href": "model_main_state/MyAppState-class.html"
+    }
+  },
+  {
+    "name": "current",
+    "qualifiedName": "main_state.MyAppState.current",
+    "href": "model_main_state/MyAppState/current.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MyAppState",
+      "kind": 3,
+      "href": "model_main_state/MyAppState-class.html"
+    }
+  },
+  {
+    "name": "favorites",
+    "qualifiedName": "main_state.MyAppState.favorites",
+    "href": "model_main_state/MyAppState/favorites.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MyAppState",
+      "kind": 3,
+      "href": "model_main_state/MyAppState-class.html"
+    }
+  },
+  {
+    "name": "getNext",
+    "qualifiedName": "main_state.MyAppState.getNext",
+    "href": "model_main_state/MyAppState/getNext.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MyAppState",
+      "kind": 3,
+      "href": "model_main_state/MyAppState-class.html"
+    }
+  },
+  {
+    "name": "history",
+    "qualifiedName": "main_state.MyAppState.history",
+    "href": "model_main_state/MyAppState/history.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MyAppState",
+      "kind": 3,
+      "href": "model_main_state/MyAppState-class.html"
+    }
+  },
+  {
+    "name": "historyListKey",
+    "qualifiedName": "main_state.MyAppState.historyListKey",
+    "href": "model_main_state/MyAppState/historyListKey.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MyAppState",
+      "kind": 3,
+      "href": "model_main_state/MyAppState-class.html"
+    }
+  },
+  {
+    "name": "removeFavorite",
+    "qualifiedName": "main_state.MyAppState.removeFavorite",
+    "href": "model_main_state/MyAppState/removeFavorite.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MyAppState",
+      "kind": 3,
+      "href": "model_main_state/MyAppState-class.html"
+    }
+  },
+  {
+    "name": "session",
+    "qualifiedName": "main_state.MyAppState.session",
+    "href": "model_main_state/MyAppState/session.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MyAppState",
+      "kind": 3,
+      "href": "model_main_state/MyAppState-class.html"
+    }
+  },
+  {
+    "name": "toggleFavorite",
+    "qualifiedName": "main_state.MyAppState.toggleFavorite",
+    "href": "model_main_state/MyAppState/toggleFavorite.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MyAppState",
+      "kind": 3,
+      "href": "model_main_state/MyAppState-class.html"
+    }
+  },
+  {
+    "name": "updateSession",
+    "qualifiedName": "main_state.MyAppState.updateSession",
+    "href": "model_main_state/MyAppState/updateSession.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MyAppState",
+      "kind": 3,
+      "href": "model_main_state/MyAppState-class.html"
+    }
+  },
+  {
+    "name": "wordPairState",
+    "qualifiedName": "main_state.MyAppState.wordPairState",
+    "href": "model_main_state/MyAppState/wordPairState.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MyAppState",
+      "kind": 3,
+      "href": "model_main_state/MyAppState-class.html"
+    }
+  },
+  {
+    "name": "menu",
+    "qualifiedName": "menu",
+    "href": "view_menu/view_menu-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "menu",
+    "qualifiedName": "menu",
+    "href": "model_menu/model_menu-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "Menu",
+    "qualifiedName": "menu.Menu",
+    "href": "view_menu/Menu-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "menu",
+      "kind": 9,
+      "href": "view_menu/view_menu-library.html"
+    }
+  },
+  {
+    "name": "Menu",
+    "qualifiedName": "menu.Menu.Menu",
+    "href": "view_menu/Menu/Menu.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "Menu",
+      "kind": 3,
+      "href": "view_menu/Menu-class.html"
+    }
+  },
+  {
+    "name": "createState",
+    "qualifiedName": "menu.Menu.createState",
+    "href": "view_menu/Menu/createState.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Creates the mutable state for this widget at a given location in the tree.",
+    "enclosedBy": {
+      "name": "Menu",
+      "kind": 3,
+      "href": "view_menu/Menu-class.html"
+    }
+  },
+  {
+    "name": "MenuModel",
+    "qualifiedName": "menu.MenuModel",
+    "href": "model_menu/MenuModel-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "menu",
+      "kind": 9,
+      "href": "model_menu/model_menu-library.html"
+    }
+  },
+  {
+    "name": "MenuModel",
+    "qualifiedName": "menu.MenuModel.MenuModel",
+    "href": "model_menu/MenuModel/MenuModel.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MenuModel",
+      "kind": 3,
+      "href": "model_menu/MenuModel-class.html"
+    }
+  },
+  {
+    "name": "isRailExtended",
+    "qualifiedName": "menu.MenuModel.isRailExtended",
+    "href": "model_menu/MenuModel/isRailExtended.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MenuModel",
+      "kind": 3,
+      "href": "model_menu/MenuModel-class.html"
+    }
+  },
+  {
+    "name": "onBottomNavTap",
+    "qualifiedName": "menu.MenuModel.onBottomNavTap",
+    "href": "model_menu/MenuModel/onBottomNavTap.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MenuModel",
+      "kind": 3,
+      "href": "model_menu/MenuModel-class.html"
+    }
+  },
+  {
+    "name": "onRailDestinationSelected",
+    "qualifiedName": "menu.MenuModel.onRailDestinationSelected",
+    "href": "model_menu/MenuModel/onRailDestinationSelected.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MenuModel",
+      "kind": 3,
+      "href": "model_menu/MenuModel-class.html"
+    }
+  },
+  {
+    "name": "selectedIndex",
+    "qualifiedName": "menu.MenuModel.selectedIndex",
+    "href": "model_menu/MenuModel/selectedIndex.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MenuModel",
+      "kind": 3,
+      "href": "model_menu/MenuModel-class.html"
+    }
+  },
+  {
+    "name": "setIsRailExtended",
+    "qualifiedName": "menu.MenuModel.setIsRailExtended",
+    "href": "model_menu/MenuModel/setIsRailExtended.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MenuModel",
+      "kind": 3,
+      "href": "model_menu/MenuModel-class.html"
+    }
+  },
+  {
+    "name": "setSelectedIndex",
+    "qualifiedName": "menu.MenuModel.setSelectedIndex",
+    "href": "model_menu/MenuModel/setSelectedIndex.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MenuModel",
+      "kind": 3,
+      "href": "model_menu/MenuModel-class.html"
+    }
+  },
+  {
+    "name": "setShowNavigationRail",
+    "qualifiedName": "menu.MenuModel.setShowNavigationRail",
+    "href": "model_menu/MenuModel/setShowNavigationRail.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MenuModel",
+      "kind": 3,
+      "href": "model_menu/MenuModel-class.html"
+    }
+  },
+  {
+    "name": "showNavigationRail",
+    "qualifiedName": "menu.MenuModel.showNavigationRail",
+    "href": "model_menu/MenuModel/showNavigationRail.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MenuModel",
+      "kind": 3,
+      "href": "model_menu/MenuModel-class.html"
+    }
+  },
+  {
+    "name": "MenuState",
+    "qualifiedName": "menu.MenuState",
+    "href": "view_menu/MenuState-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "menu",
+      "kind": 9,
+      "href": "view_menu/view_menu-library.html"
+    }
+  },
+  {
+    "name": "MenuState",
+    "qualifiedName": "menu.MenuState.MenuState",
+    "href": "view_menu/MenuState/MenuState.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MenuState",
+      "kind": 3,
+      "href": "view_menu/MenuState-class.html"
+    }
+  },
+  {
+    "name": "build",
+    "qualifiedName": "menu.MenuState.build",
+    "href": "view_menu/MenuState/build.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Describes the part of the user interface represented by this widget.",
+    "enclosedBy": {
+      "name": "MenuState",
+      "kind": 3,
+      "href": "view_menu/MenuState-class.html"
+    }
+  },
+  {
+    "name": "menu_items",
+    "qualifiedName": "menu_items",
+    "href": "view_navigation_menu_items/view_navigation_menu_items-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "MainArea",
+    "qualifiedName": "menu_items.MainArea",
+    "href": "view_navigation_menu_items/MainArea-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "menu_items",
+      "kind": 9,
+      "href": "view_navigation_menu_items/view_navigation_menu_items-library.html"
+    }
+  },
+  {
+    "name": "MainArea",
+    "qualifiedName": "menu_items.MainArea.MainArea",
+    "href": "view_navigation_menu_items/MainArea/MainArea.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MainArea",
+      "kind": 3,
+      "href": "view_navigation_menu_items/MainArea-class.html"
+    }
+  },
+  {
+    "name": "build",
+    "qualifiedName": "menu_items.MainArea.build",
+    "href": "view_navigation_menu_items/MainArea/build.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Describes the part of the user interface represented by this widget.",
+    "enclosedBy": {
+      "name": "MainArea",
+      "kind": 3,
+      "href": "view_navigation_menu_items/MainArea-class.html"
+    }
+  },
+  {
+    "name": "selectedIndex",
+    "qualifiedName": "menu_items.MainArea.selectedIndex",
+    "href": "view_navigation_menu_items/MainArea/selectedIndex.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "MainArea",
+      "kind": 3,
+      "href": "view_navigation_menu_items/MainArea-class.html"
+    }
+  },
+  {
+    "name": "navigation",
+    "qualifiedName": "navigation",
+    "href": "controller_navigation/controller_navigation-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "NavigationService",
+    "qualifiedName": "navigation.NavigationService",
+    "href": "controller_navigation/NavigationService-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "navigation",
+      "kind": 9,
+      "href": "controller_navigation/controller_navigation-library.html"
+    }
+  },
+  {
+    "name": "NavigationService",
+    "qualifiedName": "navigation.NavigationService.NavigationService",
+    "href": "controller_navigation/NavigationService/NavigationService.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "NavigationService",
+      "kind": 3,
+      "href": "controller_navigation/NavigationService-class.html"
+    }
+  },
+  {
+    "name": "navigateToLogin",
+    "qualifiedName": "navigation.NavigationService.navigateToLogin",
+    "href": "controller_navigation/NavigationService/navigateToLogin.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "NavigationService",
+      "kind": 3,
+      "href": "controller_navigation/NavigationService-class.html"
+    }
+  },
+  {
+    "name": "navigateToMain",
+    "qualifiedName": "navigation.NavigationService.navigateToMain",
+    "href": "controller_navigation/NavigationService/navigateToMain.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "NavigationService",
+      "kind": 3,
+      "href": "controller_navigation/NavigationService-class.html"
+    }
+  },
+  {
+    "name": "navigateToSignUp",
+    "qualifiedName": "navigation.NavigationService.navigateToSignUp",
+    "href": "controller_navigation/NavigationService/navigateToSignUp.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "NavigationService",
+      "kind": 3,
+      "href": "controller_navigation/NavigationService-class.html"
+    }
+  },
+  {
+    "name": "profile_page",
+    "qualifiedName": "profile_page",
+    "href": "controller_pages_profile_page/controller_pages_profile_page-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "ProfilePage",
+    "qualifiedName": "profile_page.ProfilePage",
+    "href": "controller_pages_profile_page/ProfilePage-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "profile_page",
+      "kind": 9,
+      "href": "controller_pages_profile_page/controller_pages_profile_page-library.html"
+    }
+  },
+  {
+    "name": "ProfilePage",
+    "qualifiedName": "profile_page.ProfilePage.ProfilePage",
+    "href": "controller_pages_profile_page/ProfilePage/ProfilePage.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "ProfilePage",
+      "kind": 3,
+      "href": "controller_pages_profile_page/ProfilePage-class.html"
+    }
+  },
+  {
+    "name": "createState",
+    "qualifiedName": "profile_page.ProfilePage.createState",
+    "href": "controller_pages_profile_page/ProfilePage/createState.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Creates the mutable state for this widget at a given location in the tree.",
+    "enclosedBy": {
+      "name": "ProfilePage",
+      "kind": 3,
+      "href": "controller_pages_profile_page/ProfilePage-class.html"
+    }
+  },
+  {
+    "name": "profile_scaffold",
+    "qualifiedName": "profile_scaffold",
+    "href": "view_auth_profile_scaffold/view_auth_profile_scaffold-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "ProfileScaffold",
+    "qualifiedName": "profile_scaffold.ProfileScaffold",
+    "href": "view_auth_profile_scaffold/ProfileScaffold-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "profile_scaffold",
+      "kind": 9,
+      "href": "view_auth_profile_scaffold/view_auth_profile_scaffold-library.html"
+    }
+  },
+  {
+    "name": "ProfileScaffold",
+    "qualifiedName": "profile_scaffold.ProfileScaffold.ProfileScaffold",
+    "href": "view_auth_profile_scaffold/ProfileScaffold/ProfileScaffold.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "ProfileScaffold",
+      "kind": 3,
+      "href": "view_auth_profile_scaffold/ProfileScaffold-class.html"
+    }
+  },
+  {
+    "name": "build",
+    "qualifiedName": "profile_scaffold.ProfileScaffold.build",
+    "href": "view_auth_profile_scaffold/ProfileScaffold/build.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Describes the part of the user interface represented by this widget.",
+    "enclosedBy": {
+      "name": "ProfileScaffold",
+      "kind": 3,
+      "href": "view_auth_profile_scaffold/ProfileScaffold-class.html"
+    }
+  },
+  {
+    "name": "email",
+    "qualifiedName": "profile_scaffold.ProfileScaffold.email",
+    "href": "view_auth_profile_scaffold/ProfileScaffold/email.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "ProfileScaffold",
+      "kind": 3,
+      "href": "view_auth_profile_scaffold/ProfileScaffold-class.html"
+    }
+  },
+  {
+    "name": "onLogout",
+    "qualifiedName": "profile_scaffold.ProfileScaffold.onLogout",
+    "href": "view_auth_profile_scaffold/ProfileScaffold/onLogout.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "ProfileScaffold",
+      "kind": 3,
+      "href": "view_auth_profile_scaffold/ProfileScaffold-class.html"
+    }
+  },
+  {
+    "name": "sign_up_page",
+    "qualifiedName": "sign_up_page",
+    "href": "controller_pages_sign_up_page/controller_pages_sign_up_page-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "SignUpPage",
+    "qualifiedName": "sign_up_page.SignUpPage",
+    "href": "controller_pages_sign_up_page/SignUpPage-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "sign_up_page",
+      "kind": 9,
+      "href": "controller_pages_sign_up_page/controller_pages_sign_up_page-library.html"
+    }
+  },
+  {
+    "name": "SignUpPage",
+    "qualifiedName": "sign_up_page.SignUpPage.SignUpPage",
+    "href": "controller_pages_sign_up_page/SignUpPage/SignUpPage.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "SignUpPage",
+      "kind": 3,
+      "href": "controller_pages_sign_up_page/SignUpPage-class.html"
+    }
+  },
+  {
+    "name": "createState",
+    "qualifiedName": "sign_up_page.SignUpPage.createState",
+    "href": "controller_pages_sign_up_page/SignUpPage/createState.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Creates the mutable state for this widget at a given location in the tree.",
+    "enclosedBy": {
+      "name": "SignUpPage",
+      "kind": 3,
+      "href": "controller_pages_sign_up_page/SignUpPage-class.html"
+    }
+  },
+  {
+    "name": "sign_up_scaffold",
+    "qualifiedName": "sign_up_scaffold",
+    "href": "view_auth_sign_up_scaffold/view_auth_sign_up_scaffold-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "SignUpScaffold",
+    "qualifiedName": "sign_up_scaffold.SignUpScaffold",
+    "href": "view_auth_sign_up_scaffold/SignUpScaffold-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "sign_up_scaffold",
+      "kind": 9,
+      "href": "view_auth_sign_up_scaffold/view_auth_sign_up_scaffold-library.html"
+    }
+  },
+  {
+    "name": "SignUpScaffold",
+    "qualifiedName": "sign_up_scaffold.SignUpScaffold.SignUpScaffold",
+    "href": "view_auth_sign_up_scaffold/SignUpScaffold/SignUpScaffold.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "SignUpScaffold",
+      "kind": 3,
+      "href": "view_auth_sign_up_scaffold/SignUpScaffold-class.html"
+    }
+  },
+  {
+    "name": "build",
+    "qualifiedName": "sign_up_scaffold.SignUpScaffold.build",
+    "href": "view_auth_sign_up_scaffold/SignUpScaffold/build.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Describes the part of the user interface represented by this widget.",
+    "enclosedBy": {
+      "name": "SignUpScaffold",
+      "kind": 3,
+      "href": "view_auth_sign_up_scaffold/SignUpScaffold-class.html"
+    }
+  },
+  {
+    "name": "confirmPasswordController",
+    "qualifiedName": "sign_up_scaffold.SignUpScaffold.confirmPasswordController",
+    "href": "view_auth_sign_up_scaffold/SignUpScaffold/confirmPasswordController.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "SignUpScaffold",
+      "kind": 3,
+      "href": "view_auth_sign_up_scaffold/SignUpScaffold-class.html"
+    }
+  },
+  {
+    "name": "emailController",
+    "qualifiedName": "sign_up_scaffold.SignUpScaffold.emailController",
+    "href": "view_auth_sign_up_scaffold/SignUpScaffold/emailController.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "SignUpScaffold",
+      "kind": 3,
+      "href": "view_auth_sign_up_scaffold/SignUpScaffold-class.html"
+    }
+  },
+  {
+    "name": "onSignUp",
+    "qualifiedName": "sign_up_scaffold.SignUpScaffold.onSignUp",
+    "href": "view_auth_sign_up_scaffold/SignUpScaffold/onSignUp.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "SignUpScaffold",
+      "kind": 3,
+      "href": "view_auth_sign_up_scaffold/SignUpScaffold-class.html"
+    }
+  },
+  {
+    "name": "passwordController",
+    "qualifiedName": "sign_up_scaffold.SignUpScaffold.passwordController",
+    "href": "view_auth_sign_up_scaffold/SignUpScaffold/passwordController.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "SignUpScaffold",
+      "kind": 3,
+      "href": "view_auth_sign_up_scaffold/SignUpScaffold-class.html"
+    }
+  },
+  {
+    "name": "text_field",
+    "qualifiedName": "text_field",
+    "href": "view_components_text_field/view_components_text_field-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "mainPage",
+    "qualifiedName": "text_field.mainPage",
+    "href": "view_components_text_field/mainPage.html",
+    "kind": 8,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "text_field",
+      "kind": 9,
+      "href": "view_components_text_field/view_components_text_field-library.html"
+    }
+  },
+  {
+    "name": "wordpair_card",
+    "qualifiedName": "wordpair_card",
+    "href": "view_components_wordpair_card/view_components_wordpair_card-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "BigCard",
+    "qualifiedName": "wordpair_card.BigCard",
+    "href": "view_components_wordpair_card/BigCard-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "wordpair_card",
+      "kind": 9,
+      "href": "view_components_wordpair_card/view_components_wordpair_card-library.html"
+    }
+  },
+  {
+    "name": "BigCard",
+    "qualifiedName": "wordpair_card.BigCard.BigCard",
+    "href": "view_components_wordpair_card/BigCard/BigCard.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "BigCard",
+      "kind": 3,
+      "href": "view_components_wordpair_card/BigCard-class.html"
+    }
+  },
+  {
+    "name": "build",
+    "qualifiedName": "wordpair_card.BigCard.build",
+    "href": "view_components_wordpair_card/BigCard/build.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Describes the part of the user interface represented by this widget.",
+    "enclosedBy": {
+      "name": "BigCard",
+      "kind": 3,
+      "href": "view_components_wordpair_card/BigCard-class.html"
+    }
+  },
+  {
+    "name": "pair",
+    "qualifiedName": "wordpair_card.BigCard.pair",
+    "href": "view_components_wordpair_card/BigCard/pair.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "BigCard",
+      "kind": 3,
+      "href": "view_components_wordpair_card/BigCard-class.html"
+    }
+  },
+  {
+    "name": "wordpair_history",
+    "qualifiedName": "wordpair_history",
+    "href": "view_components_wordpair_history/view_components_wordpair_history-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "HistoryListView",
+    "qualifiedName": "wordpair_history.HistoryListView",
+    "href": "view_components_wordpair_history/HistoryListView-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "wordpair_history",
+      "kind": 9,
+      "href": "view_components_wordpair_history/view_components_wordpair_history-library.html"
+    }
+  },
+  {
+    "name": "HistoryListView",
+    "qualifiedName": "wordpair_history.HistoryListView.HistoryListView",
+    "href": "view_components_wordpair_history/HistoryListView/HistoryListView.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "HistoryListView",
+      "kind": 3,
+      "href": "view_components_wordpair_history/HistoryListView-class.html"
+    }
+  },
+  {
+    "name": "createState",
+    "qualifiedName": "wordpair_history.HistoryListView.createState",
+    "href": "view_components_wordpair_history/HistoryListView/createState.html",
+    "kind": 10,
+    "overriddenDepth": 1,
+    "packageRank": 0,
+    "desc": "Creates the mutable state for this widget at a given location in the tree.",
+    "enclosedBy": {
+      "name": "HistoryListView",
+      "kind": 3,
+      "href": "view_components_wordpair_history/HistoryListView-class.html"
+    }
+  },
+  {
+    "name": "wordpair_state",
+    "qualifiedName": "wordpair_state",
+    "href": "model_wordpair_wordpair_state/model_wordpair_wordpair_state-library.html",
+    "kind": 9,
+    "packageRank": 0,
+    "desc": ""
+  },
+  {
+    "name": "WordPairState",
+    "qualifiedName": "wordpair_state.WordPairState",
+    "href": "model_wordpair_wordpair_state/WordPairState-class.html",
+    "kind": 3,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "wordpair_state",
+      "kind": 9,
+      "href": "model_wordpair_wordpair_state/model_wordpair_wordpair_state-library.html"
+    }
+  },
+  {
+    "name": "WordPairState",
+    "qualifiedName": "wordpair_state.WordPairState.WordPairState",
+    "href": "model_wordpair_wordpair_state/WordPairState/WordPairState.html",
+    "kind": 2,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "WordPairState",
+      "kind": 3,
+      "href": "model_wordpair_wordpair_state/WordPairState-class.html"
+    }
+  },
+  {
+    "name": "current",
+    "qualifiedName": "wordpair_state.WordPairState.current",
+    "href": "model_wordpair_wordpair_state/WordPairState/current.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "WordPairState",
+      "kind": 3,
+      "href": "model_wordpair_wordpair_state/WordPairState-class.html"
+    }
+  },
+  {
+    "name": "favorites",
+    "qualifiedName": "wordpair_state.WordPairState.favorites",
+    "href": "model_wordpair_wordpair_state/WordPairState/favorites.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "WordPairState",
+      "kind": 3,
+      "href": "model_wordpair_wordpair_state/WordPairState-class.html"
+    }
+  },
+  {
+    "name": "getNext",
+    "qualifiedName": "wordpair_state.WordPairState.getNext",
+    "href": "model_wordpair_wordpair_state/WordPairState/getNext.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "WordPairState",
+      "kind": 3,
+      "href": "model_wordpair_wordpair_state/WordPairState-class.html"
+    }
+  },
+  {
+    "name": "history",
+    "qualifiedName": "wordpair_state.WordPairState.history",
+    "href": "model_wordpair_wordpair_state/WordPairState/history.html",
+    "kind": 16,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "WordPairState",
+      "kind": 3,
+      "href": "model_wordpair_wordpair_state/WordPairState-class.html"
+    }
+  },
+  {
+    "name": "removeFavorite",
+    "qualifiedName": "wordpair_state.WordPairState.removeFavorite",
+    "href": "model_wordpair_wordpair_state/WordPairState/removeFavorite.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "WordPairState",
+      "kind": 3,
+      "href": "model_wordpair_wordpair_state/WordPairState-class.html"
+    }
+  },
+  {
+    "name": "toggleFavorite",
+    "qualifiedName": "wordpair_state.WordPairState.toggleFavorite",
+    "href": "model_wordpair_wordpair_state/WordPairState/toggleFavorite.html",
+    "kind": 10,
+    "overriddenDepth": 0,
+    "packageRank": 0,
+    "desc": "",
+    "enclosedBy": {
+      "name": "WordPairState",
+      "kind": 3,
+      "href": "model_wordpair_wordpair_state/WordPairState-class.html"
+    }
+  }
+]
