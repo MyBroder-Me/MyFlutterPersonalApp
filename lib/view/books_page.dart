@@ -149,6 +149,49 @@ class _BooksPageState extends State<BooksPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        body: FutureBuilder<List<Book>>(
+          future: booksFuture,
+          builder: (context, snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return const Center(child: CircularProgressIndicator());
+            } else if (snapshot.hasError) {
+              return Center(child: Text('Error: ${snapshot.error}'));
+            } else {
+              final books = snapshot.data!;
+              return ListView.builder(
+                itemCount: books.length,
+                itemBuilder: (context, index) {
+                  final book = books[index];
+                  return ListTile(
+                    title: Text(book.title),
+                    subtitle: Text(book.author ?? 'Unknown'),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: const Icon(Icons.edit),
+                          onPressed: () => _editBook(book),
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.delete),
+                          onPressed: () => _removeBook(book.id!),
+                        ),
+                      ],
+                    ),
+                  );
+                },
+              );
+            }
+          },
+        ),
+        floatingActionButton: FloatingActionButton(
+          child: const Icon(Icons.add),
+          onPressed: _addBook,
+        ));
+  }
+}
+
+/*
       appBar: AppBar(
         title: const Text('Books'),
         actions: [
@@ -158,55 +201,4 @@ class _BooksPageState extends State<BooksPage> {
           ),
         ],
       ),
-      body: FutureBuilder<List<Book>>(
-        future: booksFuture,
-        builder: (context, snapshot) {
-          if (snapshot.connectionState == ConnectionState.waiting) {
-            return const Center(child: CircularProgressIndicator());
-          } else if (snapshot.hasError) {
-            return Center(child: Text('Error: ${snapshot.error}'));
-          } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-            return Center(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  const Text('No books available.'),
-                  const SizedBox(height: 20),
-                  ElevatedButton(
-                    onPressed: _addBook,
-                    child: const Text('Add Book'),
-                  ),
-                ],
-              ),
-            );
-          } else {
-            final books = snapshot.data!;
-            return ListView.builder(
-              itemCount: books.length,
-              itemBuilder: (context, index) {
-                final book = books[index];
-                return ListTile(
-                  title: Text(book.title),
-                  subtitle: Text(book.author ?? 'Unknown'),
-                  trailing: Row(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      IconButton(
-                        icon: const Icon(Icons.edit),
-                        onPressed: () => _editBook(book),
-                      ),
-                      IconButton(
-                        icon: const Icon(Icons.delete),
-                        onPressed: () => _removeBook(book.id!),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            );
-          }
-        },
-      ),
-    );
-  }
-}
+ */
