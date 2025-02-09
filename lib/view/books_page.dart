@@ -184,9 +184,10 @@ class _BooksPageState extends State<BooksPage> {
             }
           },
         ),
-        floatingActionButton: FloatingActionButton(
+        floatingActionButton: FloatingActionButton.extended(
           onPressed: _addBook,
-          child: const Icon(Icons.add),
+          label: Text("Add Book"),
+          icon: const Icon(Icons.add),
         ));
   }
 }
