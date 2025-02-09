@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import '../../controller/pages/profile_page.dart';
-import '../books_page.dart';
+import '../book/books_page.dart';
 import '../wordpair/favorites_page.dart';
 import '../wordpair/generator_page.dart';
 
