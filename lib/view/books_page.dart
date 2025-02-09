@@ -190,15 +190,3 @@ class _BooksPageState extends State<BooksPage> {
         ));
   }
 }
-
-/*
-      appBar: AppBar(
-        title: const Text('Books'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.add),
-            onPressed: _addBook,
-          ),
-        ],
-      ),
- */
