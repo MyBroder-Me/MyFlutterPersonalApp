@@ -30,8 +30,11 @@ migrate_working_dir/
 .flutter-plugins-dependencies
 .pub-cache/
 .pub/
-/build/
-./coverage*
+build/
+**/build/
+coverage/
+.coverage*
+
 # Symbolication related
 app.*.symbols
 
@@ -42,3 +45,40 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Android related
+**/android/**/gradle-wrapper.jar
+.gradle/
+**/android/captures/
+**/android/gradlew
+**/android/gradlew.bat
+**/android/local.properties
+**/android/**/GeneratedPluginRegistrant.java
+**/android/.cxx/
+
+# iOS/macOS related
+**/ios/Pods/
+**/macos/Pods/
+**/ios/.symlinks/
+**/macos/.symlinks/
+**/xcuserdata/
+**/DerivedData/
+*.xcworkspace/xcshareddata/IDEWorkspaceChecks.plist
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Generated files
+*.generated.dart
+*.g.dart
+*.freezed.dart
+*.mocks.dart
+
+# FVM (Flutter Version Management)
+.fvm/flutter_sdk
+.fvmrc
+
+# Test related
+**/test_driver/*.dart.snapshot
