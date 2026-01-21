@@ -1,16 +1,32 @@
-# myapp
+# MyApp
 
-A new Flutter project.
+A personal Flutter app for managing a book collection. Users can sign in with email or Google, then add, edit, and delete books from their personal library. Also includes a fun word pair generator with the ability to save favorites.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+### Install Dependencies
 
-A few resources to get you started if this is your first Flutter project:
+```bash
+flutter pub get
+```
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+### Run the App
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+```bash
+flutter run
+```
+
+To run on a specific device:
+
+```bash
+flutter devices              # List available devices
+flutter run -d <device-id>   # Run on specific device
+```
+
+## Useful Commands
+
+```bash
+flutter test                 # Run tests
+flutter clean                # Clean build artifacts
+flutter pub upgrade          # Update dependencies
+```
