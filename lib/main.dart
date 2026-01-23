@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:myapp/config/app_config.dart';
 import 'package:myapp/controller/auth_service.dart';
 import 'package:myapp/controller/pages/login_page.dart';
 import 'package:provider/provider.dart';
@@ -10,12 +11,19 @@ import 'view/menu.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Load configuration from JSON (ENV comes from --dart-define)
+  final config = await AppConfig.load();
+  config.log('Starting app with ${config.env} configuration');
+  config.log('Supabase URL: ${config.supabase.url}');
+
+  // Initialize Supabase with config values
   await Supabase.initialize(
-    url: 'https://jgywuqgtfzblbaqprvdb.supabase.co',
-    anonKey:
-        'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImpneXd1cWd0ZnpibGJhcXBydmRiIiwicm9sZSI6ImFub24iLCJpYXQiOjE3MzYwMTg3NjQsImV4cCI6MjA1MTU5NDc2NH0.A2lzmtfewM5Rm9LpZlWq4u9fjcPHwmjYNk-y5wD_dBo',
+    url: config.supabase.url,
+    anonKey: config.supabase.anonKey,
   );
-  runApp(MyApp());
+
+  runApp(const MyApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -47,7 +55,9 @@ class MyApp extends StatelessWidget {
           future: _isLoggedIn(),
           builder: (context, snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return const CircularProgressIndicator();
+              return const Scaffold(
+                body: Center(child: CircularProgressIndicator()),
+              );
             } else if (snapshot.hasData && snapshot.data == true) {
               return Menu();
             } else {

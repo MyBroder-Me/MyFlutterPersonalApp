@@ -42,14 +42,29 @@ dependencies:
 dev_dependencies:
   flutter_test:
     sdk: flutter
-
-  # The "flutter_lints" package below contains a set of recommended lints to
-  # encourage good coding practices. The lint set provided by the package is
-  # activated in the `analysis_options.yaml` file located at the root of your
-  # package. See that file for information about deactivating specific lint
-  # rules and activating additional ones.
   flutter_lints: ^5.0.0
   test: ^1.25.8
+
+scripts:
+  # Development (local Supabase)
+  dev: flutter run --dart-define=ENV=dev
+  dev:ios: flutter run --dart-define=ENV=dev -d iPhone
+  dev:android: flutter run --dart-define=ENV=dev -d sdk
+
+  # Production run (for testing prod config locally)
+  prod: flutter run --dart-define=ENV=prod
+
+  # Build (always production)
+  build: derry build:ios && derry build:android
+  build:ios: flutter build ipa --dart-define=ENV=prod
+  build:android: flutter build appbundle --dart-define=ENV=prod
+  build:apk: flutter build apk --dart-define=ENV=prod --split-per-abi
+
+  # Utilities
+  clean: flutter clean && flutter pub get
+  test: flutter test
+  analyze: flutter analyze
+  setup: dart scripts/setup_launch.dart
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
@@ -62,10 +77,9 @@ flutter:
   # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
-  # assets:
-  #   - images/a_dot_burr.jpeg
-  #   - images/a_dot_ham.jpeg
+  # Assets
+  assets:
+    - assets/config/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/to/resolution-aware-images

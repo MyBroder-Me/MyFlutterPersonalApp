@@ -1,0 +1,14 @@
+{
+  "env": "production",
+  "enable_logging": false,
+  "supabase": {
+    "url": "https://hohxbxrqglxfsgeatdvd.supabase.co",
+    "anon_key": "sb_publishable_y4ZHAHbVLoK26qupHesTZQ_3fAG1_3x"
+  },
+  "storage": {
+    "url": "https://hohxbxrqglxfsgeatdvd.supabase.co/storage/v1/s3",
+    "access_key": "",
+    "secret_key": "",
+    "region": ""
+  }
+}
