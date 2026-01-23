@@ -29,6 +29,9 @@
 ## Reset local DB to clean state (applies all migrations)
 ```supabase db reset```
 
+## If you only want to apply migrations without loosing data
+```supabase migration up```
+
 ## Push migrations to production when ready
 ```supabase db push```
 

@@ -4,6 +4,7 @@ import 'package:myapp/controller/navigation.dart';
 import 'package:supabase_flutter/supabase_flutter.dart';
 
 import '../../view/auth/login_scaffold.dart';
+import '../../view/auth/reenable_account_dialog.dart';
 import '../auth_service.dart';
 
 class LoginPage extends StatefulWidget {
@@ -25,7 +26,24 @@ class _LoginPageState extends State<LoginPage> {
 
     try {
       await authService.signInWithEmailPassword(email, password);
-      if (mounted) _navigationService.navigateToMain(context);
+
+      if (!mounted) return;
+      final disabledAt = await authService.checkAccountDisabled();
+
+      if (!mounted) return;
+      if (disabledAt != null) {
+        final shouldReenable = await showReenableAccountDialog(context);
+
+        if (!mounted) return;
+        if (shouldReenable) {
+          await authService.enableAccount();
+          if (mounted) _navigationService.navigateToMain(context);
+        } else {
+          await authService.signOut();
+        }
+      } else {
+        _navigationService.navigateToMain(context);
+      }
     } catch (error) {
       if (mounted) {
         if (error is AuthException &&

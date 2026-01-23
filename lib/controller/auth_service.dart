@@ -52,11 +52,41 @@ class AuthService {
     return user?.email;
   }
 
-  Future<void> deleteAccount() async {
+  /// Disables account by setting disabled_at timestamp.
+  /// This preserves all user data including purchases.
+  Future<void> disableAccount() async {
     final user = _supabase.auth.currentUser;
     if (user != null) {
-      await _supabase.from('users').delete().eq('id', user.id);
+      await _supabase.from('profiles').update({
+        'disabled_at': DateTime.now().toUtc().toIso8601String(),
+      }).eq('id', user.id);
       await _supabase.auth.signOut();
+    }
+  }
+
+  /// Checks if the current user's account is disabled.
+  /// Returns the disabled_at timestamp if disabled, null if active.
+  Future<DateTime?> checkAccountDisabled() async {
+    final user = _supabase.auth.currentUser;
+    if (user == null) return null;
+
+    final response = await _supabase
+        .from('profiles')
+        .select('disabled_at')
+        .eq('id', user.id)
+        .single();
+
+    final disabledAt = response['disabled_at'];
+    return disabledAt != null ? DateTime.parse(disabledAt) : null;
+  }
+
+  /// Re-enables account by clearing disabled_at.
+  Future<void> enableAccount() async {
+    final user = _supabase.auth.currentUser;
+    if (user != null) {
+      await _supabase.from('profiles').update({
+        'disabled_at': null,
+      }).eq('id', user.id);
     }
   }
 }
