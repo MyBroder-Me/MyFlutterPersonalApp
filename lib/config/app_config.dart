@@ -1,4 +1,5 @@
 import 'dart:convert';
+import 'dart:io' show Platform;
 import 'package:flutter/services.dart';
 
 class SupabaseConfig {
@@ -67,6 +68,14 @@ class AppConfig {
   /// Whether we're in production mode
   bool get isProduction => env == 'production';
 
+  /// Get platform-specific URL from config.
+  /// Uses url_android if on Android and available, otherwise falls back to url.
+  static String _getUrl(Map<String, dynamic> json) {
+    final androidUrl = json['url_android'] as String?;
+    final defaultUrl = json['url'] as String;
+    return (Platform.isAndroid && androidUrl != null) ? androidUrl : defaultUrl;
+  }
+
   /// Load configuration from JSON asset file based on ENV
   static Future<AppConfig> load() async {
     final jsonString = await rootBundle.loadString(
@@ -74,11 +83,22 @@ class AppConfig {
     );
     final json = jsonDecode(jsonString) as Map<String, dynamic>;
 
+    final supabaseJson = json['supabase'] as Map<String, dynamic>;
+    final storageJson = json['storage'] as Map<String, dynamic>;
+
     final config = AppConfig(
       env: json['env'] as String,
       enableLogging: json['enable_logging'] as bool? ?? false,
-      supabase: SupabaseConfig.fromJson(json['supabase'] as Map<String, dynamic>),
-      storage: StorageConfig.fromJson(json['storage'] as Map<String, dynamic>),
+      supabase: SupabaseConfig(
+        url: _getUrl(supabaseJson),
+        anonKey: supabaseJson['anon_key'] as String,
+      ),
+      storage: StorageConfig(
+        url: _getUrl(storageJson),
+        accessKey: storageJson['access_key'] as String,
+        secretKey: storageJson['secret_key'] as String,
+        region: storageJson['region'] as String,
+      ),
     );
 
     instance = config;
