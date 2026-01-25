@@ -15,7 +15,7 @@
 import 'dart:convert';
 import 'dart:io';
 
-const Duration deviceTimeout = Duration(seconds: 60);
+const Duration deviceTimeout = Duration(seconds: 120);
 const Duration pollInterval = Duration(seconds: 2);
 
 void main(List<String> args) async {
@@ -149,7 +149,8 @@ Future<String> _promptChoice(
 // ============================================================================
 
 Future<List<Map<String, dynamic>>> _getRunningDevices() async {
-  final result = await Process.run('flutter', ['devices', '--machine']);
+  final result = await Process.run('flutter', ['devices', '--machine'],
+      runInShell: true);
   if (result.exitCode != 0) return [];
 
   final output = result.stdout as String;
@@ -167,62 +168,150 @@ Future<List<Map<String, dynamic>>> _getRunningDevices() async {
 Future<String> _ensureAndroidDevice() async {
   // Check if already running
   var devices = await _getRunningDevices();
+  print('  Checking for running devices: ${devices.map((d) => d['id']).toList()}');
   for (final device in devices) {
     final platform = device['targetPlatform'] as String? ?? '';
     if (platform.startsWith('android')) {
+      print('  Found running Android: ${device['id']}');
       return device['id'] as String;
     }
   }
 
-  // Get available AVDs
-  final sdkPath = _getAndroidSdkPath();
-  if (sdkPath == null) {
-    throw Exception('Android SDK not found');
-  }
-
-  final emulatorPath = '$sdkPath/emulator/emulator';
-  final listResult = await Process.run(
-    emulatorPath,
-    ['-list-avds'],
-    environment: {'ANDROID_HOME': sdkPath, 'ANDROID_SDK_ROOT': sdkPath},
+  // Get available emulators using flutter
+  final emulatorsResult = await Process.run(
+    'flutter',
+    ['emulators'],
+    runInShell: true,
   );
 
-  var avds = (listResult.stdout as String)
-      .split('\n')
-      .map((s) => s.trim())
-      .where((s) => s.isNotEmpty)
-      .toList();
+  // Parse emulator IDs from output
+  final lines = (emulatorsResult.stdout as String).split('\n');
+  final emulatorIds = <String>[];
+  for (final line in lines) {
+    // Lines with emulator info contain "•" separators
+    if (line.contains('•') && line.contains('android')) {
+      final id = line.split('•').first.trim();
+      if (id.isNotEmpty) emulatorIds.add(id);
+    }
+  }
+  print('  Available emulators: $emulatorIds');
 
-  // Create AVD if none exist
-  if (avds.isEmpty) {
+  // Create emulator if none exist
+  String emulatorId;
+  if (emulatorIds.isEmpty) {
     print('  Creating Android emulator...');
     await Process.run(
-        'flutter', ['emulators', '--create', '--name', 'flutter_emulator']);
-    avds = ['flutter_emulator'];
+        'flutter', ['emulators', '--create', '--name', 'flutter_emulator'],
+        runInShell: true);
+    emulatorId = 'flutter_emulator';
+  } else {
+    emulatorId = emulatorIds.first;
   }
 
-  // Launch emulator
-  print('  Launching ${avds.first}...');
-  await Process.start(
-    emulatorPath,
-    ['-avd', avds.first],
-    mode: ProcessStartMode.detached,
-  );
+  // Launch emulator using flutter
+  print('  Launching $emulatorId...');
+  if (Platform.isWindows) {
+    // On Windows, use START to launch truly independently
+    await Process.run(
+      'cmd',
+      ['/c', 'start', '/b', 'flutter', 'emulators', '--launch', emulatorId],
+    );
+  } else {
+    // On macOS/Linux, detached mode works properly
+    await Process.start(
+      'flutter',
+      ['emulators', '--launch', emulatorId],
+      mode: ProcessStartMode.detached,
+      runInShell: true,
+    );
+  }
 
-  // Wait for device
-  return await _waitForDevice(
-    'Android',
-    () async {
-      final devices = await _getRunningDevices();
-      for (final device in devices) {
-        final platform = device['targetPlatform'] as String? ?? '';
-        if (platform.startsWith('android')) {
-          return device['id'] as String?;
+  // Wait for device to appear (using adb - faster, no CMD window flash)
+  print('  Waiting for emulator to connect...');
+  final deviceId = await _waitForAndroidDevice();
+
+  // Wait for device to fully boot
+  print('  Waiting for emulator to fully boot...');
+  await _waitForAndroidBoot(deviceId);
+
+  return deviceId;
+}
+
+/// Get full path to adb executable
+String? _getAdbPath() {
+  if (Platform.isWindows) {
+    final localAppData = Platform.environment['LOCALAPPDATA'] ?? '';
+    final path = '$localAppData\\Android\\Sdk\\platform-tools\\adb.exe';
+    if (File(path).existsSync()) return path;
+  } else if (Platform.isMacOS) {
+    final home = Platform.environment['HOME'] ?? '';
+    final path = '$home/Library/Android/sdk/platform-tools/adb';
+    if (File(path).existsSync()) return path;
+  }
+  return null;
+}
+
+/// Run adb command silently (no CMD window on Windows)
+Future<String> _runAdb(List<String> args) async {
+  final adbPath = _getAdbPath();
+  if (adbPath != null) {
+    // Use full path - no shell needed, no CMD window
+    final result = await Process.run(adbPath, args);
+    return result.stdout as String;
+  } else {
+    // Fallback to PATH lookup (may show CMD window on Windows)
+    final result = await Process.run('adb', args, runInShell: true);
+    return result.stdout as String;
+  }
+}
+
+/// Wait for an Android device to appear using adb
+Future<String> _waitForAndroidDevice() async {
+  final startTime = DateTime.now();
+
+  while (DateTime.now().difference(startTime) < deviceTimeout) {
+    final output = await _runAdb( ['devices']);
+    final lines = output.split('\n');
+    for (final line in lines) {
+      // Format: "emulator-5554	device" or "emulator-5554	offline"
+      if (line.contains('emulator') && line.contains('device')) {
+        final deviceId = line.split('\t').first.trim();
+        if (deviceId.isNotEmpty) {
+          print('');
+          return deviceId;
         }
       }
-      return null;
-    },
-  );
+    }
+    await Future.delayed(pollInterval);
+    stdout.write('.');
+  }
+
+  throw Exception('Timeout waiting for Android device');
+}
+
+/// Wait for Android device to fully boot (sys.boot_completed = 1)
+Future<void> _waitForAndroidBoot(String deviceId) async {
+  final startTime = DateTime.now();
+  final bootTimeout = Duration(seconds: 90);
+
+  while (DateTime.now().difference(startTime) < bootTimeout) {
+    final output = await _runAdb(
+      ['-s', deviceId, 'shell', 'getprop', 'sys.boot_completed'],
+    );
+
+    if (output.trim() == '1') {
+      print('');
+      print('  Emulator fully booted!');
+      // Give it a moment to settle
+      await Future.delayed(Duration(seconds: 2));
+      return;
+    }
+
+    await Future.delayed(pollInterval);
+    stdout.write('.');
+  }
+
+  throw Exception('Timeout waiting for Android device to boot');
 }
 
 Future<String> _ensureIOSDevice() async {
@@ -324,33 +413,25 @@ Future<String> _waitForDevice(
   Future<String?> Function() getDeviceId,
 ) async {
   final startTime = DateTime.now();
+  print('  Waiting for $platform device (timeout: ${deviceTimeout.inSeconds}s)...');
 
+  var attempt = 0;
   while (DateTime.now().difference(startTime) < deviceTimeout) {
     final id = await getDeviceId();
-    if (id != null) return id;
+    if (id != null) {
+      print('\n  Device found: $id');
+      return id;
+    }
     await Future.delayed(pollInterval);
-    stdout.write('.');
+    attempt++;
+    if (attempt % 5 == 0) {
+      print('  Still waiting... (${DateTime.now().difference(startTime).inSeconds}s)');
+    } else {
+      stdout.write('.');
+    }
   }
 
   throw Exception('Timeout waiting for $platform device');
-}
-
-String? _getAndroidSdkPath() {
-  final fromEnv = Platform.environment['ANDROID_HOME'] ??
-      Platform.environment['ANDROID_SDK_ROOT'];
-  if (fromEnv != null) return fromEnv;
-
-  final homeDir = Platform.environment['HOME'] ?? '';
-  final paths = [
-    '$homeDir/Library/Android/sdk',
-    '$homeDir/Android/Sdk',
-  ];
-
-  for (final path in paths) {
-    if (Directory(path).existsSync()) return path;
-  }
-
-  return null;
 }
 
 // ============================================================================
@@ -379,7 +460,7 @@ Future<void> _generateVSCodeConfig({
       'name': 'Flutter (Android)',
       'type': 'dart',
       'request': 'launch',
-      'deviceId': androidId ?? 'emulator-5554',
+      'deviceId': androidId!,
       'args': ['--dart-define=ENV=$env'],
       'flutterMode': mode,
     });
@@ -400,7 +481,7 @@ Future<void> _generateVSCodeConfig({
       'type': 'dart',
       'request': 'launch',
       'presentation': {'hidden': true},
-      'deviceId': androidId ?? 'emulator-5554',
+      'deviceId': androidId!,
       'args': ['--dart-define=ENV=$env'],
       'flutterMode': mode,
     });
@@ -466,16 +547,18 @@ Future<void> _launchVSCodeDebug(String platform) async {
     '''
     ]);
   } else if (Platform.isWindows) {
-    // Use PowerShell on Windows
-    await Process.run('powershell', [
-      '-Command',
-      '''
-      \$wshell = New-Object -ComObject wscript.shell
-      \$wshell.AppActivate("Visual Studio Code")
-      Start-Sleep -Milliseconds 500
-      \$wshell.SendKeys("{F5}")
-    '''
-    ]);
+    // Use VBScript on Windows (native, no escaping issues)
+    final vbsScript = '''
+Set WshShell = CreateObject("WScript.Shell")
+WshShell.AppActivate "Visual Studio Code"
+WScript.Sleep 500
+WshShell.SendKeys "{F5}"
+''';
+    final tempDir = Platform.environment['TEMP'] ?? r'C:\Windows\Temp';
+    final vbsFile = File('$tempDir\\flutter_launch_vscode.vbs');
+    vbsFile.writeAsStringSync(vbsScript);
+    await Process.run('wscript', [vbsFile.path]);
+    vbsFile.deleteSync();
   } else {
     print('  Note: Auto-launch not supported on this platform.');
     print('  Please press F5 in VS Code to start debugging.');
