@@ -45,7 +45,7 @@ Groups are collections of people (like Telegram/WhatsApp groups):
 ### Phase 1: Foundation
 
 #### Authentication
-- [ ] Email/password login
+- [X] Email/password login
 - [ ] Google Sign-In
 - [ ] Apple Sign-In (iOS)
 - [ ] Password reset flow

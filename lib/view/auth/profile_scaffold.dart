@@ -4,13 +4,13 @@ import 'package:flutter/material.dart';
 class ProfileScaffold extends StatelessWidget {
   final String? email;
   final VoidCallback onLogout;
-  final VoidCallback onDeleteAccount;
+  final VoidCallback onDisableAccount;
 
   const ProfileScaffold({
     super.key,
     required this.email,
     required this.onLogout,
-    required this.onDeleteAccount,
+    required this.onDisableAccount,
   });
 
   @override
@@ -27,11 +27,11 @@ class ProfileScaffold extends StatelessWidget {
           ),
           const SizedBox(height: 16),
           ElevatedButton(
-            onPressed: onDeleteAccount,
+            onPressed: onDisableAccount,
             style: ElevatedButton.styleFrom(
-              backgroundColor: Colors.red, // Red color for delete button
+              backgroundColor: Colors.orange,
             ),
-            child: const Text('Delete Account'),
+            child: const Text('Disable Account'),
           ),
         ],
       ),
