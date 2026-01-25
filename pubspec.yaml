@@ -46,15 +46,13 @@ dev_dependencies:
   test: ^1.25.8
 
 scripts:
-  # Development (local Supabase)
-  dev: flutter run --dart-define=ENV=dev
-  dev:ios: flutter run --dart-define=ENV=dev -d iPhone
-  dev:android: flutter run --dart-define=ENV=dev -d sdk
+  # VS Code Launch (cross-platform: Linux, macOS, Windows)
+  # Prompts for env/mode, ensures emulators, launches VS Code debug
+  start:android: dart run scripts/start.dart android
+  start:ios: dart run scripts/start.dart ios
+  start:both: dart run scripts/start.dart both
 
-  # Production run (for testing prod config locally)
-  prod: flutter run --dart-define=ENV=prod
-
-  # Build (always production)
+  # Build (production releases)
   build: derry build:ios && derry build:android
   build:ios: flutter build ipa --dart-define=ENV=prod
   build:android: flutter build appbundle --dart-define=ENV=prod
@@ -64,7 +62,6 @@ scripts:
   clean: flutter clean && flutter pub get
   test: flutter test
   analyze: flutter analyze
-  setup: dart scripts/setup_launch.dart
 
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
