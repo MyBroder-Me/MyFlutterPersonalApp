@@ -1,16 +1,16 @@
 #!/usr/bin/env dart
-/// Unified launcher for Flutter development.
-///
-/// Usage:
-///   dart run scripts/start.dart android
-///   dart run scripts/start.dart ios
-///   dart run scripts/start.dart both
-///
-/// This script:
-/// 1. Prompts for environment (dev/prod) and build mode (debug/profile/release)
-/// 2. Ensures required emulators are running
-/// 3. Generates VS Code launch.json with correct device IDs
-/// 4. Triggers VS Code debug session
+// Unified launcher for Flutter development.
+//
+// Usage:
+//   dart run scripts/start.dart android
+//   dart run scripts/start.dart ios
+//   dart run scripts/start.dart both
+//
+// This script:
+// 1. Prompts for environment (dev/prod) and build mode (debug/profile/release)
+// 2. Ensures required emulators are running
+// 3. Generates VS Code launch.json with correct device IDs
+// 4. Triggers VS Code debug session
 
 import 'dart:convert';
 import 'dart:io';
@@ -51,33 +51,21 @@ void main(List<String> args) async {
     print('Platform: $platform');
     print('');
 
-    // Step 2: Ensure devices are running (parallel for 'both')
+    // Step 2: Ensure devices are running
     String? androidId;
     String? iosId;
 
-    if (platform == 'both' && Platform.isMacOS) {
-      // Run both in parallel
-      print('Ensuring devices (parallel)...');
-      final results = await Future.wait([
-        _ensureAndroidDevice(),
-        _ensureIOSDevice(),
-      ]);
-      androidId = results[0];
-      iosId = results[1];
+    if (platform == 'android' || platform == 'both') {
+      print('Ensuring Android device...');
+      androidId = await _ensureAndroidDevice();
       print('  Android ready: $androidId');
-      print('  iOS ready: $iosId');
-    } else {
-      if (platform == 'android') {
-        print('Ensuring Android device...');
-        androidId = await _ensureAndroidDevice();
-        print('  Android ready: $androidId');
-      }
+    }
 
-      if (platform == 'ios') {
-        if (!Platform.isMacOS) {
-          print('Warning: iOS is only available on macOS');
-          exit(1);
-        }
+    if (platform == 'ios' || platform == 'both') {
+      if (!Platform.isMacOS) {
+        print('Warning: iOS is only available on macOS');
+        if (platform == 'ios') exit(1);
+      } else {
         print('Ensuring iOS device...');
         iosId = await _ensureIOSDevice();
         print('  iOS ready: $iosId');
@@ -101,7 +89,6 @@ void main(List<String> args) async {
 
     print('');
     print('Done! Check VS Code for the debug session.');
-
   } catch (e) {
     print('Error: $e');
     exit(1);
@@ -209,7 +196,8 @@ Future<String> _ensureAndroidDevice() async {
   // Create AVD if none exist
   if (avds.isEmpty) {
     print('  Creating Android emulator...');
-    await Process.run('flutter', ['emulators', '--create', '--name', 'flutter_emulator']);
+    await Process.run(
+        'flutter', ['emulators', '--create', '--name', 'flutter_emulator']);
     avds = ['flutter_emulator'];
   }
 
@@ -249,8 +237,10 @@ Future<String> _ensureIOSDevice() async {
   }
 
   // Get available simulators
-  final simResult = await Process.run('xcrun', ['simctl', 'list', 'devices', '--json']);
-  final simJson = jsonDecode(simResult.stdout as String) as Map<String, dynamic>;
+  final simResult =
+      await Process.run('xcrun', ['simctl', 'list', 'devices', '--json']);
+  final simJson =
+      jsonDecode(simResult.stdout as String) as Map<String, dynamic>;
   final simDevices = simJson['devices'] as Map<String, dynamic>;
 
   List<Map<String, String>> simulators = [];
@@ -276,9 +266,12 @@ Future<String> _ensureIOSDevice() async {
   if (simulators.isEmpty) {
     // Create new simulator
     print('  Creating iOS simulator...');
-    final runtimeResult = await Process.run('xcrun', ['simctl', 'list', 'runtimes', '--json']);
-    final runtimeJson = jsonDecode(runtimeResult.stdout as String) as Map<String, dynamic>;
-    final runtimes = (runtimeJson['runtimes'] as List).cast<Map<String, dynamic>>();
+    final runtimeResult =
+        await Process.run('xcrun', ['simctl', 'list', 'runtimes', '--json']);
+    final runtimeJson =
+        jsonDecode(runtimeResult.stdout as String) as Map<String, dynamic>;
+    final runtimes =
+        (runtimeJson['runtimes'] as List).cast<Map<String, dynamic>>();
 
     final iosRuntime = runtimes.lastWhere(
       (r) => r['isAvailable'] == true && (r['name'] as String).contains('iOS'),
@@ -286,7 +279,11 @@ Future<String> _ensureIOSDevice() async {
     );
 
     final createResult = await Process.run('xcrun', [
-      'simctl', 'create', 'Flutter iPhone', 'iPhone 16 Pro', iosRuntime['identifier'] as String,
+      'simctl',
+      'create',
+      'Flutter iPhone',
+      'iPhone 16 Pro',
+      iosRuntime['identifier'] as String,
     ]);
 
     if (createResult.exitCode != 0) {
@@ -434,10 +431,14 @@ Future<void> _generateVSCodeConfig({
   }
 
   final encoder = JsonEncoder.withIndent('  ');
-  File('.vscode/launch.json').writeAsStringSync('${encoder.convert(launchJson)}\n');
+  File('.vscode/launch.json')
+      .writeAsStringSync('${encoder.convert(launchJson)}\n');
 
-  final configName = platform == 'both' ? 'Flutter (Both Platforms)' :
-                     platform == 'ios' ? 'Flutter (iOS)' : 'Flutter (Android)';
+  final configName = platform == 'both'
+      ? 'Flutter (Both Platforms)'
+      : platform == 'ios'
+          ? 'Flutter (iOS)'
+          : 'Flutter (Android)';
   print('  Generated .vscode/launch.json');
   print('  Config: $configName (ENV=$env, mode=$mode)');
 }
@@ -456,19 +457,25 @@ Future<void> _launchVSCodeDebug(String platform) async {
     ]);
   } else if (Platform.isLinux) {
     // Use xdotool on Linux
-    await Process.run('bash', ['-c', '''
+    await Process.run('bash', [
+      '-c',
+      '''
       wmctrl -a "Visual Studio Code" 2>/dev/null || code .
       sleep 0.5
       xdotool key F5
-    ''']);
+    '''
+    ]);
   } else if (Platform.isWindows) {
     // Use PowerShell on Windows
-    await Process.run('powershell', ['-Command', '''
+    await Process.run('powershell', [
+      '-Command',
+      '''
       \$wshell = New-Object -ComObject wscript.shell
       \$wshell.AppActivate("Visual Studio Code")
       Start-Sleep -Milliseconds 500
       \$wshell.SendKeys("{F5}")
-    ''']);
+    '''
+    ]);
   } else {
     print('  Note: Auto-launch not supported on this platform.');
     print('  Please press F5 in VS Code to start debugging.');
